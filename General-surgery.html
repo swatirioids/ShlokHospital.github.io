@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Shlok Hospital | General Surgery</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--Color Themes-->
+    <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8de71d6583.js" crossorigin="anonymous"></script>
+    <!--Color Switcher Mockup-->
+    <link href="css/color-switcher-design.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/fav.jpg" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<style>
+    .phone-number {
+    cursor: pointer;
+    }
+    .dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    }
+    .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:20;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    filter: blur(5px); /* blur effect */
+    z-index: 9999;
+    display: none;
+    
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    overflow: hidden;
+  /* border-radius: 5px; */
+    z-index: 10000;
+    display: none;
+}
+.popup-content {
+width:"1px"
+}
+</style>
+<body>
+<div class="page-wrapper">
+<!-- Main Header-->
+        <header class="main-header header-style-one">
+        <!-- Header top -->
+        <div class="header-top">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <div class="top-left">
+                        <ul class="contact-list clearfix">
+                            <li class=""><i class="fa-solid fa-phone text-[#f48120] tracking-tight">
+                                <a href="tel:+91 8048051713">08048051713</a></i></li>
+                            <li class="hover:text-black"><i class="fa-solid fa-envelope " id="emailButton"></i>
+                                <a class="email-link" href="#" id="emailLink">Email:shlokhospital.ks@gmail.com</a></li>
+                        </ul>
+                        </div>
+                        <!---script-->
+                        <script>
+                        //Email-icon
+                        var emailLink = document.getElementById("emailLink");
+                        emailLink.addEventListener("click", function(event) {
+                        event.preventDefault(); 
+                        var emailAddress = "shlokhospital.ks@gmail.com"; 
+                        var subject = "Email subject"; 
+                        var body = "Email body"; 
+                        var mailtoLink = "mailto:" + emailAddress + "?subject=" + encodeURIComponent(subject) + "&body=" +encodeURIComponent(body);
+                        window.location.href = mailtoLink;                      
+                });
+            </script>
+        <!---icon--->
+                    <div class="top-right">
+                        <ul class="social-icon-one">
+                            <li><a href="https://www.facebook.com/people/Shlok-hospital/100064047314336/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://twitter.com/shlok_Hospital" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com/shlokhospital/" target="_blank"><i class="fab fa-square-instagram"></i></a></li>
+                            <li><a href="https://api.whatsapp.com/send?text=https://www.shlokhospital.in" target="_blank"><span class="fa-brands fa-square-whatsapp" id="whatsapp-icon"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Top -->
+        <!-- Header Lower -->
+        <div class="header-lower">
+            <div class="auto-container">
+                <!-- Main box -->
+                <div class="main-box">
+                    <div class="logo-box">
+                        <div class="logo"><a href="index.html"><img src="images/Shlok Hospital Logo-01.png" width="35%" alt="" title=""></a></div>
+                    </div>
+                    <!--Nav Box-->
+                    <div class="nav-outer">
+                        <nav class="nav main-menu">
+                            <ul class="navigation" id="navbar">
+                                <li><a href="index.html">Home</a></li>
+                                <li class="dropdown">
+                                    <span>About</span>
+                                    <ul>
+                                        <li class="current"><a href="about-us.html">About Us</a></li>
+                                        <li><a href="doctor-detail.html">Meet our Doctor</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <span>Services</span>
+                                    <ul>
+                                        <li><a href="burncare.html">Burn Care</a></li>
+                                        <li><a href="physiotheraphy.html">Physiotherapy</a></li>
+                                        <li><a href="anaesthesiology.html">Anaesthesiology</a></li>
+                                        <li><a href="psychiatry.html">Psychiatry</a></li>
+                                        <li><a href="rheumatology.html">Rheumatology</a></li>
+                                        <li><a href="more.html">More</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="update.html">Update</a>
+                                </li>
+                                <li class="dropdown">
+                                    <span>More</span>
+                                    <ul>
+                                        <li><a href="core-values-of-our-hospital.html">Core Value of Our Hospital</a></li>
+                                        <li><a href="laboratory-services-in-house.html">Laboratory Services(In House)</a></li>
+                                        <li><a href="laboratory-services-out-sourced.html">Laboratory Services(Out Sourced)</a></li>
+                                        <li><a href="diagnostic-imaging.html">Diagnostic Imaging</a></li>
+                                        <li><a href="viewall.html">View All</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <!-- Main Menu End-->
+                        <div class="outer-box">
+                            <a href="#" id="open-popup-btns" class="theme-btn btn-style-one"><span class="btn-title">Appointment</span></a> 
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!------------------------Appointment--------------------------------------->
+<div class="flex items-center gap-6 ">
+    <div>
+        <div id="popups" class="popup">
+        <div class="popup-content">
+            <div class="flex gap-3 ">
+                <div class="">
+                    <img src="images/appointment.jpg" alt="" width="400" height="200" class="object-fill">
+                    <img src="images/Shlok Hospital Logo-01.png" alt="" width="200" height="50" class="absolute left- ml- top-5 ">
+                </div>
+                <div>
+                    <div class="p-10 py-20">
+                        <i id="close-popup-btns" class="fa-solid fa-x border-2 border-black p-1 rounded relative -top-16 left-60" id="myModal"
+                    ></i>
+                        <h1 class="text-2xl font-bold text-gray-600 relative -top-10">Book an Appointment</h1>
+                        <h1 class="text-sm text-gray-400 mt-3">Please Enter Your Contact Details</h1>
+                        <form action="" id="myForm">
+                    <div class="grid grid-cols-1 gap-8 mt-5">
+                        <input type="text" placeholder="Name" autocomplete="off" id="name" name="name" class="border-b-2 border-0 border-gray-200 rounded-lg">
+                        <input type="email" id="email" name="email" placeholder="Email" autocomplete="off" class="border-b-2 border-0 border-gray-200 rounded-lg">
+                        <input type="number" id="contact" name="contact" placeholder="Contact Number" autocomplete="off" class="border-b-2 border-0 border-gray-200 rounded-lg">
+                        <button class="mt-4 border rounded-lg py-2 bg-orange-300 hover:text-white font-bold hover:bg-orange-600" 
+                        type="submit" value="Submit">Submit</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    <div id="overlays" class="overlay w-full "></div>
+    <script>
+        const formData = [];
+    
+        const form = document.querySelector('form');
+    
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+    
+            const nameInput = document.querySelector("#name");
+            const emailInput = document.querySelector('#email');
+            const phoneInput = document.querySelector('#contact');
+    
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const phone = phoneInput.value.trim();
+    
+            if (email === '') {
+                alert('Please enter your email address.');
+                emailInput.focus();
+                return;
+            }
+    
+            if (name === '') {
+                alert('Please enter your name.');
+                nameInput.focus();
+                return;
+            }
+    
+            // Name validation: Allow only letters and spaces
+            const nameRegex = /^[A-Za-z\s]+$/;
+            if (!nameRegex.test(name)) {
+                alert("Please enter a valid name using only letters and spaces.");
+                nameInput.focus();
+                return;
+            }
+    
+            const phoneRegex = /^[6-9]\d{9}$/;
+            if (!phoneRegex.test(phone)) {
+                alert("Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9.");
+                phoneInput.focus();
+                return;
+            }
+    
+            const data = {
+                name: name,
+                emailInput: email,
+                contact: phone
+            };
+            
+            formData.push(data);
+            console.log(formData);
+    
+            form.reset();
+            alert('Form submitted successfully! Thank you.');
+        });
+    </script>
+    <script>
+        const openPopupBtns = document.getElementById('open-popup-btns');
+        const closePopupBtns = document.getElementById('close-popup-btns');
+        const popups = document.getElementById('popups');
+        const overlays = document.getElementById('overlays');
+        openPopupBtns.addEventListener('click', () => {
+            popups.style.display = 'block';
+            overlays.style.display = 'block';
+        });
+        closePopupBtns.addEventListener('click', () => {
+            popups.style.display = 'none';
+            overlays.style.display = 'none';
+        });
+        </script>
+    <!----------------------------End---------------------------------------------->
+<!-- Sticky Header  -->
+        <div class="sticky-header">
+            <div class="auto-container">
+                <div class="main-box">
+                    <div class="logo-box">
+                        <div class="logo"><a href="index.html"><img src="images/Shlok Hospital Logo-01.png" width="25%" alt="" title=""></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Sticky Menu -->
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="logo"><a href="index.html"><img src="images/Shlok Hospital Logo-01.png" width="100%" alt="" title=""></a></div>
+        <!--Nav Box-->
+            <div class="nav-outer clearfix">
+                <div class="outer-box">
+                    <!-- Search Btn -->
+                    <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span class="fa fa-bars"></span></a>
+                </div>
+            </div>
+        </div>
+<!-- Mobile Nav -->
+        <div id="nav-mobile"></div>
+</header>
+<!--End Main Header -->
+<!--Page Title-->
+<section class="page-title" style="background-image: url(images/wallpaperofservices.jpg); height: 34rem;">
+        <div class="auto-container">
+            <div class="title-outer">
+                <h1>Services</h1>
+                <ul class="page-breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>General Surgery</li>
+                </ul> 
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+<!--Sidebar Page Container-->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+<!--Content Side / Our Blog-->
+                <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12 order-2">
+                    <div class="service-detail">
+                        <div class="images-box">
+                            <figure class="image wow fadeIn"><a href="images/resource/service-single.jpg" class="lightbox-image" data-fancybox="services"><img src="images/female-doctor-consults-her-patient-holds-documents-her-hands.jpg" alt=""></a></figure>
+                        </div>
+                        <div class="content-box">
+                            <div class="title-box">
+                                <h2>Services Of General Surgery </h2>
+                                <span class="theme_color">We focus on continuous quality improvement to provide patients a safe environment to recieve highest quality care!</span>
+                            </div>
+                            <p>General surgery is a surgical specialty that focuses on abdominal contents including the esophagus, stomach, small intestine, large intestine, liver, pancreas, gallbladder, appendix and bile ducts, and often the thyroid gland.</p>
+                            <p>General surgery services encompass a wide range of surgical procedures and treatments aimed at diagnosing, managing, and surgically correcting various medical conditions. </p>
+                            <!-- Two Column -->
+                            <div class="two-column">
+                                <div class="row">
+                                    <div class="image-column col-xl-6 col-lg-12 col-md-12">
+                                        <figure class="image"><a href="images/critical care.jpg" class="lightbox-image"><img src="images/critical care.jpg" alt=""></a></figure>
+                                    </div>
+                                    <div class="text-column col-xl-6 col-lg-12 col-md-12">
+                                        <p>General surgeons are medical professionals who are highly skilled in performing a diverse set of surgical procedures. Here are some aspects of general surgery services for patients:</p>
+                                        <ul class="list-style-one">
+                                            <li></li>
+                                            <li><strong>Emergency Surgery:</strong>General surgeons are trained to perform emergency surgeries, such as appendectomies, trauma surgeries, and procedures for abdominal emergencies like bowel obstructions or perforations.</li>
+                                            <li><strong>Inpatient and Outpatient Surgeries:</strong> General surgeons perform surgeries in both inpatient and outpatient settings, depending on the complexity of the procedure and the patient's medical condition.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Why Choose This Service</h3>
+                            <p>Patients may choose general surgery services for several reasons, as these services offer several key advantages that cater to their specific medical needs and overall well-being. </p>
+                            <!--Product Info Tabs-->
+                            <div class="product-info-tabs">
+                                <!--Product Tabs-->
+                                <div class="prod-tabs tabs-box">
+                                    <!--Tab Btns-->
+                                    <ul class="tab-btns tab-buttons clearfix">
+                                        <li data-tab="#prod-details" class="tab-btn active-btn">Precautions</li>
+                                        <li data-tab="#prod-spec" class="tab-btn">Intelligence</li>
+                                        <li data-tab="#prod-reviews" class="tab-btn">Specializations</li>
+                                    </ul>
+                                <!--Tabs Container-->
+                                    <div class="tabs-content">
+                                    <!--Tab / Active Tab-->
+                                        <div class="tab active-tab" id="prod-details">
+                                            <div class="content">
+                                                <p> Follow strict infection control protocols, including proper hand hygiene, surgical site preparation, and the use of sterile instruments and equipment, to prevent surgical site infections.</p>
+                                            </div>
+                                        </div>
+                                    <!--Tab -->
+                                        <div class="tab" id="prod-spec">
+                                            <div class="content">
+                                                <p>Intelligence in general surgery refers to the integration of advanced technologies, data analytics, evidence-based practices, and innovative techniques to enhance patient care, improve surgical outcomes, and optimize healthcare processes.</p>
+                                            </div>
+                                        </div>
+                                    <!--Tab-->
+                                        <div class="tab" id="prod-reviews">
+                                            <div class="content">
+                                                <p>In general surgery, there are various specialized areas that focus on specific medical conditions and surgical procedures. General surgeons may choose to pursue additional training and expertise in these subspecialties to provide specialized care for patients.</p>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--Sidebar Side-->
+                <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
+                    <aside class="sidebar services-sidebar">
+                        <!-- Category Widget -->
+                        <div class="sidebar-widget categories">
+                            <div class="widget-content">
+                                <!-- Services Category -->
+                                <ul class="services-categories">
+                                    <li><a href="more.html">All Services</a></li>
+                                    <li><a href="burncare.html">Burn Care</a></li>
+                                    <li><a href="physiotheraphy">Physiotheraphy</a></li>
+                                    <li><a href="anaesthesiology.html">Anaesthesiology</a></li>
+                                        <li><a href="psychiatry.html">Psychiatry</a></li>
+                                        <li><a href="rheumatology.html">Rheumatology</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Brochures Box-->
+                        <div class="help-box">
+                            <span>Quick Contact</span>
+                            <h4>Get Solution</h4>
+                            <p>We focus on continuous quality improvement to provide patients a safe environment to recieve highest quality care.</p>
+                            <a href="contact.html" class="theme-btn btn-style-one"><span class="btn-title">Contact</span></a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar Page Container -->
+    <!-- Services Section -->
+    <section class="services-section-two">
+        <div class="auto-container">
+            <div class="carousel-outer">
+                <!-- Services Carousel -->
+                <div class="services-carousel owl-carousel owl-theme default-dots">
+                    <!-- service Block -->
+                    <div class="service-block-two">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href=""><img src="images/Laparoscopy.jpg" alt=""></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="title-box">
+                                    <div class="text-orange-500 text-xl">
+                                        <i class="fa-solid fa-circle-down"></i>
+                                        </div>
+                                    <h4 class="ml-2"><a href="Laparoscopy.html">Laparoscopy</a></h4> 
+                                </div>
+                                <div class="text">Laparoscopy is an operation performed in the abdomen or pelvis using small incisions with the aid of a camera. The laparoscope aids diagnosis or</div>
+                                <span class="icon-right flaticon-heart-2"></span>
+                            </div>
+                        </div>
+                    </div>
+                <!-- service Block -->
+                    <div class="service-block-two">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="Gynaecology.html"><img src="images/gy.jpg" alt=""></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="title-box">
+                                    <div class="text-orange-500 text-xl">
+                                        <i class="fa-solid fa-circle-down"></i>
+                                        </div>
+                                    <h4 class="ml-2"><a href="Gynaecology.html">Gynaecology</a></h4>
+                                </div>
+                                <div class="text">Gynaecology or gynecology is the medical practice dealing with the health of the female reproductive system. Almost all modern gynaecologists are also</div>
+                                <span class="icon-right flaticon-brain"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- service Block -->
+                    <div class="service-block-two">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="Bariatric_surgery.html"><img src="images/Bariatric surgery.jpg" alt=""></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="title-box">
+                                    <div class="text-orange-500 text-xl">
+                                        <i class="fa-solid fa-circle-down"></i>
+                                        </div>
+                                    <h4 class="ml-2"><a href="Bariatric_surgery.html">Bariatric surgery</a></h4>
+                                </div>
+                                <div class="text">Bariatric surgery includes a variety of procedures performed on people who are obese. Long term weight loss through standard of care procedures is</div>
+                                <span class="icon-right flaticon-kidney"></span>
+                            </div>
+                        </div>
+                    </div>
+            <!-- service Block -->
+                    <div class="service-block-two">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="Plastic-surgery.html"><img src="images/Plastic surgery.jpg" alt=""></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="title-box">
+                                    <div class="text-orange-500 text-xl">
+                                        <i class="fa-solid fa-circle-down"></i>
+                                        </div>
+                                    <h4 class="ml-2"><a href="Plastic-surgery.html">Plastic surgery</a></h4> 
+                                </div>
+                                <div class="text">Plastic surgery is a surgical specialty involving the restoration, reconstruction, or alteration of the human body. It can be divided into two main</div>
+                                <span class="icon-right flaticon-ovum"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- service Block -->
+                    <div class="service-block-two">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="Oncology.html"><img src="images/Oncology.jpg" alt=""></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="title-box">
+                                    <div class="text-orange-500 text-xl">
+                                        <i class="fa-solid fa-circle-down"></i>
+                                        </div>
+                                    <h4 class="ml-2"><a href="Oncology.html">Oncology</a></h4>
+                                </div>
+                                <div class="text">Oncology is a branch of medicine that deals with the prevention, diagnosis, and treatment of cancer. A medical professional who practices oncology is an</div>
+                                <span class="icon-right flaticon-parents"></span>
+                            </div>
+                        </div>
+                    </div>
+            <!-- service Block -->
+                    <div class="service-block-two">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="anaesthesiology.html"><img src="images/anaesthesiology.jpg" alt=""></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="title-box">
+                                    <div class="text-orange-500 text-xl">
+                                        <i class="fa-solid fa-circle-down"></i>
+                                        </div>
+                                    <h4 class="ml-2"><a href="anaesthesiology.html">Anesthesiology</a></h4>
+                                </div>
+                                <div class="text">Anesthesiology, or Anaesthesiology, is the medical specialty concerned with the total perioperative care of patients before, during and after surgery. It</div>
+                                <span class="icon-right flaticon-science"></span>
+                            </div>
+                        </div>
+                    </div>
+            <!-- service Block -->
+                    <div class="service-block-two">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="physiotheraphy.html"><img src="images/physiotherapy.webp" alt=""></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="title-box">
+                                    <div class="text-orange-500 text-xl">
+                                        <i class="fa-solid fa-circle-down"></i>
+                                        </div>
+                                    <h4 class="ml-2"><a href="physiotheraphy.html">Physiotherapy</a></h4>
+                                </div>
+                                <div class="text">Physical therapy, also known as physiotherapy, is one of the allied health professions. It is provided by physical therapists who promote, maintain,</div>
+                                <span class="icon-right flaticon-parents"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End service Section -->
+<!-- Main Footer -->
+    <footer class="main-footer">
+        <!--Widgets Section-->
+        <div class="widgets-section" style="background-image: url(images/background/7.jpg);">
+            <div class="auto-container">
+                <div class="row">
+                    <!--Big Column-->
+                    <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="row">
+                            <!--Footer Column-->
+                            <div class="footer-column col-xl-7 col-lg-6 col-md-6 col-sm-12">
+                                <div class="footer-widget about-widget">
+                                    <div class="logo">
+                                        <a href="index.html"><img src="images/Shlok Hospital White Logo 2-01.png" width="50%" class="drop-shadow-lg" alt="" /></a>
+                                    </div>
+                                    <div class="text">
+                                        <p>Shlok Hospital A Multispeciality Hospital At Velu. One of the best hospital in Velu with well equiped Operation Theatre and Trained Nursing Staff.</p>
+                                    </div>
+                                    <ul class="social-icon-three">
+                                        <ul class="social-icon-three">
+                                            <li><a href="https://www.facebook.com/people/Shlok-hospital/100064047314336/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="https://twitter.com/shlok_Hospital" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="https://www.instagram.com/shlokhospital/" target="_blank"><i class="fab fa-square-instagram"></i></a></li>
+                                            <li><a href="https://api.whatsapp.com/send?text=https://www.shlokhospital.in" target="_blank"><span class="fa-brands fa-square-whatsapp" id="whatsapp-icon"></span></a></li>
+                                        </ul>
+                                </div>
+                            </div>
+                    <!--Footer Column-->
+                            <div class="footer-column col-xl-5 col-lg-6 col-md-6 col-sm-12">
+                                <div class="footer-widget">
+                                    <h2 class="widget-title">Services</h2>
+                                    <ul class="user-links">
+                                        <li><a href="burncare.html">Burn Care</a></li>
+                                        <li><a href="physiotheraphy.html">Physiotherapy</a></li>
+                                        <li><a href="anaesthesiology.html">Anaesthesiology</a></li>
+                                        <li><a href="psychiatry.html">Psychiatry</a></li>
+                                        <li><a href="rheumatology.html">Rheumatology</a></li>
+                                        <li><a href="more.html">More</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <!--Big Column-->
+                    <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="row">
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                <!--Footer Column-->
+                                <div class="footer-widget recent-posts">
+                                    <h2 class="widget-title">Latest News</h2>
+                                    <!--Footer Column-->
+                                    <div class="widget-content">
+                                        <div class="post">
+                                            <div class="thumb"><a href="blog-post-image.html"><img src="images/update.avif" alt=""></a></div>
+                                            <h4><a href="blog-post-image.html">Heath check up Camp Arrange by Hon. MLA</a></h4>
+                                            <span class="date">July 1, 2022</span>
+                                        </div>
+                                        <div class="post">
+                                            <div class="thumb"><a href="blog-post-image.html"><img src="images/interior-view-operating-room.avif" alt=""></a></div>
+                                            <h4><a href="blog-post-image.html">Operation Theatre facility available</a></h4>
+                                            <span class="date">March 24, 2022</span>
+                                        </div>
+                                        <div class="post">
+                                            <div class="thumb"><a href="blog-post-image.html"><img src="images/ct machine.webp" alt=""></a></div>
+                                            <h4><a href="blog-post-image.html">Shlok Hospital Shivapur
+                                                CT scan facility available</a></h4>
+                                            <span class="date">March 31, 2022</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                <!--Footer Column-->
+                                <div class="footer-widget contact-widget">
+                                    <div class="md:ml-8">
+                                    <h2 class="widget-title">Contact Us</h2>
+                                    </div>
+                                    <!--Footer Column-->
+                                    <div class="widget-content">
+                                        <ul class="contact-list">
+                                        <div class="flex">
+                                            <li class="md:ml-9 -ml-11 -mt-3">
+                                                <span class="icon flaticon-call-1"></span>
+                                                <div class="-ml-6">
+                                                <div class="text">Mon to sun : 7PM - 7PM</div>
+                                                <a href="tel:+91 8048051713"><strong>+91 8048051713</strong></a>
+                                                </div>
+                                            </li>
+                                        </div>
+                                        <li class="md:-ml-10 -ml-16 md:mt-12 mt-3">
+                                                <iframe width="100%" height="20%" src="https://www.google.com/maps/embed/v1/place?q=412205,Right Side Of Bridge, Khed Shivapur, Khed Shivapur , Kondhanpur Phata, Opposite Muktangan Hotel,Pune,India&amp;zoom=15&amp;key=AIzaSyDz5vOp_4ebrlGOV0FyuSf_w5jHBIQz5iQ">
+                                            </iframe>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- End Page Wrapper -->
+<!-- End Color Switcher -->
+<script src="js/jquery.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/mmenu.polyfills.js"></script>
+<script src="js/jquery.modal.min.js"></script>
+<script src="js/mmenu.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/script.js"></script>
+<!-- Color Setting -->
+<script src="js/color-settings.js"></script>
+</body>
+</html>

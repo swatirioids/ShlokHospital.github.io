@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Shlok Hospital</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--Color Themes-->
+    <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
+    <!-- font icon -->
+    <script src="https://kit.fontawesome.com/8de71d6583.js" crossorigin="anonymous"></script>
+    <!--Color Switcher Mockup-->
+    <link href="css/color-switcher-design.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/fav.jpg" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<style>
+    .phone-number {
+    cursor: pointer;
+    }
+    .dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    }
+    .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:20;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    filter: blur(5px); /* blur effect */
+    z-index: 9999;
+    display: none;
+    
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    overflow: hidden;
+  /* border-radius: 5px; */
+    z-index: 10000;
+    display: none;
+}
+.popup-content {
+width:"1px"
+}
+</style>
+<body>
+<div class="page-wrapper">
+<!-- Main Header-->
+    <header class="main-header header-style-one">
+<!-- Header top -->
+        <div class="header-top">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <div class="top-left">
+                        <ul class="contact-list clearfix">
+                                <li class=""><i class="fa-solid fa-phone text-[#f48120]">
+                                    <a href="tel:+91 8048051713">08048051713</a></i></li>
+                                    <div id="phone-dialog" class="dialog">
+                                    <!-- Content of the dialog box -->
+                                    </div>
+                                <li class="hover:text-black"><i class="fa-solid fa-envelope " id="emailButton"></i>
+                                    <a class="email-link" href="#" id="emailLink">Email:shlokhospital.ks@gmail.com</a></li>
+                                </ul>
+                            </div>
+        <!---script-->
+    <script>
+//Email-icon
+        var emailLink = document.getElementById("emailLink");
+        emailLink.addEventListener("click", function(event) {
+        event.preventDefault(); 
+        var emailAddress = "shlokhospital.ks@gmail.com"; 
+        var subject = "Email subject"; 
+        var body = "Email body";
+        var mailtoLink = "mailto:" + emailAddress + "?subject=" + encodeURIComponent(subject) + "&body=" +encodeURIComponent(body);
+        window.location.href = mailtoLink;                      
+});
+    </script>
+<!---icon--->
+    <div class="top-right">
+        <ul class="social-icon-one">
+            <li><a href="https://www.facebook.com/people/Shlok-hospital/100064047314336/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://twitter.com/shlok_Hospital" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/shlokhospital/" target="_blank"><i class="fab fa-square-instagram"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send?text=https://www.shlokhospital.in" target="_blank"><span class="fa-brands fa-square-whatsapp" id="whatsapp-icon"></span></a></li>
+        </ul>
+    </div>
+</div></div></div>
+<!-- End Header Top -->
+<!-- Header Lower -->
+    <div class="header-lower">
+        <div class="auto-container">
+            <!-- Main box -->
+            <div class="main-box">
+                <div class="logo-box">
+                    <div class="logo"><a href="index.html"><img src="images/Shlok Hospital Logo-01.png" width="35%" alt="" title=""></a></div>
+                </div>
+            <!--Nav Box-->
+                <div class="nav-outer">
+                    <nav class="nav main-menu">
+                        <ul class="navigation" id="navbar">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="dropdown">
+                        <span>About</span>
+                        <ul>
+                            <li class="current"><a href="about-us.html">About Us</a></li>
+                            <li><a href="doctor-detail.html">Meet our Doctor</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <span>Services</span>
+                        <ul>
+                            <li><a href="burncare.html">Burn Care</a></li>
+                            <li><a href="physiotheraphy.html">Physiotherapy</a></li>
+                            <li><a href="anaesthesiology.html">Anaesthesiology</a></li>
+                            <li><a href="psychiatry.html">Psychiatry</a></li>
+                            <li><a href="rheumatology.html">Rheumatology</a></li>
+                            <li><a href="more.html">More</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="update.html">Update</a>
+                    </li>
+                    <li class="dropdown">
+                        <span>More</span>
+                            <ul>
+                                <li><a href="core-values-of-our-hospital.html">Core Value of Our Hospital</a></li>
+                                <li><a href="laboratory-services-in-house.html">Laboratory Services(In House)</a></li>
+                                <li><a href="laboratory-services-out-sourced.html">Laboratory Services(Out Sourced)</a></li>
+                                <li><a href="diagnostic-imaging.html">Diagnostic Imaging</a></li>
+                                <li><a href="viewall.html">View All</a></li>
+                                </ul>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                            <!-- Main Menu End-->
+                            <div class="outer-box">
+                                <a href="#" id="open-popup-btns" class="theme-btn btn-style-one"><span class="btn-title">Appointment</span></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+<!------------------------Appointment--------------------------------------->
+<div class="flex items-center gap-6 ">
+<div>
+    <div id="popups" class="popup">
+    <div class="popup-content">
+        <div class="flex gap-3 ">
+            <div class="">
+                <img src="images/appointment.jpg" alt="" width="400" height="200" class="object-fill">
+                <img src="images/Shlok Hospital Logo-01.png" alt="" width="200" height="50" class="absolute left- ml- top-5 ">
+            </div>
+            <div>
+                <div class="p-10 py-20">
+                    <i id="close-popup-btns" class="fa-solid fa-x border-2 border-black p-1 rounded relative -top-16 left-60" id="myModal"
+                ></i>
+                    <h1 class="text-2xl font-bold text-gray-600 relative -top-10">Book an Appointment</h1>
+                    <h1 class="text-sm text-gray-400 mt-3">Please Enter Your Contact Details</h1>
+                    <form action="" id="myForm">
+                <div class="grid grid-cols-1 gap-8 mt-5">
+                    <input type="text" placeholder="Name" autocomplete="off" id="name" name="name" class="border-b-2 border-0 border-gray-200 rounded-lg">
+                    <input type="email" id="email" name="email" placeholder="Email" autocomplete="off" class="border-b-2 border-0 border-gray-200 rounded-lg">
+                    <input type="number" id="contact" name="contact" placeholder="Contact Number" autocomplete="off" class="border-b-2 border-0 border-gray-200 rounded-lg">
+                    <button class="mt-4 border rounded-lg py-2 bg-orange-300 hover:text-white font-bold hover:bg-orange-600" 
+                    type="submit" value="Submit">Submit</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+<div id="overlays" class="overlay w-full "></div>
+<script>
+    const formData = [];
+
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const nameInput = document.querySelector("#name");
+        const emailInput = document.querySelector('#email');
+        const phoneInput = document.querySelector('#contact');
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+
+        if (email === '') {
+            alert('Please enter your email address.');
+            emailInput.focus();
+            return;
+        }
+
+        if (name === '') {
+            alert('Please enter your name.');
+            nameInput.focus();
+            return;
+        }
+
+        // Name validation: Allow only letters and spaces
+        const nameRegex = /^[A-Za-z\s]+$/;
+        if (!nameRegex.test(name)) {
+            alert("Please enter a valid name using only letters and spaces.");
+            nameInput.focus();
+            return;
+        }
+
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (!phoneRegex.test(phone)) {
+            alert("Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9.");
+            phoneInput.focus();
+            return;
+        }
+
+        const data = {
+            name: name,
+            emailInput: email,
+            contact: phone
+        };
+        
+        formData.push(data);
+        console.log(formData);
+
+        form.reset();
+        alert('Form submitted successfully! Thank you.');
+    });
+</script>
+
+    <script>
+    const openPopupBtns = document.getElementById('open-popup-btns');
+    const closePopupBtns = document.getElementById('close-popup-btns');
+    const popups = document.getElementById('popups');
+    const overlays = document.getElementById('overlays');
+    openPopupBtns.addEventListener('click', () => {
+        popups.style.display = 'block';
+        overlays.style.display = 'block';
+    });
+    closePopupBtns.addEventListener('click', () => {
+        popups.style.display = 'none';
+        overlays.style.display = 'none';
+    });
+    </script>
+<!----------------------------End---------------------------------------------->
+<!-- Sticky Header  -->
+            <div class="sticky-header">
+                <div class="auto-container">
+                    <div class="main-box">
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="images/Shlok Hospital Logo-01.png" width="25%" alt="" title=""></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Sticky Menu -->
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <div class="logo"><a href="index.html"><img src="images/Shlok Hospital Logo-01.png" width="100%" alt="" title=""></a></div>
+                <!--Nav Box-->
+                <div class="nav-outer clearfix">
+                <div class="outer-box">
+                <!-- Search Btn -->
+                <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span class="fa fa-bars"></span></a>
+                </div>
+                </div>
+            </div>
+            <!-- Mobile Nav -->
+            <div id="nav-mobile"></div>
+        </header>
+        <!--End Main Header -->
+<!-- Bnner Section One -->
+    <section class="banner-section-one">
+        <div class="banner-carousel owl-carousel owl-theme default-arrows dark">
+            <!-- Slide Item -->
+            <div class="slide-item z-40" style="background-image: url(images/background/7.jpg);">
+                <div class="auto-container">
+                    <div class="content-outer">
+                        <div class="content-box">
+                            <span class="title">We take care our patients health</span>
+                            <h2 class="heading">SHLOK HOSPITAL - 08048051713</h2>
+                            <div class="text">Shlok Hospital A Multispeciality Hospital At Velu. One of the best hospital in Velu with well equiped Operation Theatre and Trained Nursing Staff. Well equped ICU Unit and Experienced Doctors. Hospital is well cleaned andon the road of Pune Banglore Highway at Velu near Shivapur.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- Slide Item -->
+            <div class="slide-item" style="background-image: url(images/dr1.avif);">
+                <div class="auto-container">
+                    <div class="content-outer">
+                        <div class="content-box">
+                            <span class="title">We take care our patients health</span>
+                            <h2>SHLOK HOSPITAL - 08048051713</h2>
+                            <div class="text">Shlok Hospital A Multispeciality Hospital At Velu. One of the best hospital in Velu with well equiped Operation Theatre and Trained Nursing Staff. Well equped ICU Unit and Experienced Doctors. Hospital is well cleaned andon the road of Pune Banglore Highway at Velu near Shivapur.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Bnner Section One -->
+    <div>
+        <a href="./about-us.html">
+            <h2 class="md:absolute lg:absolute absolute md:top-72 top-96 md:mt-80 mt-44 lg:bottom-96 md:-mt-20 md:pt-2 lg:pt-2 lg:left-44 left-1 z-50 h-10  md:h-12 lg:h-12 md:w-36 lg:w-36 w-24 rounded-lg text-center md:text-center lg:text-center pt-2 md:text-lg lg:text-xl text-sm  text-white bg-orange-500 hover:bg-orange-600 md:font-semibold lg:font-semibold font-semibold"><span class="btn-title">About Us</span></h2>
+    </a>
+    </div>
+    <div>
+        <a href="./contact.html">
+            <h2 class="md:absolute lg:absolute absolute md:top-72 top-96 md:mt-80 mt-44 lg:bottom-96 md:-mt-20 md:pt-2 lg:pt-2 md:left-56 lg:left-96 left-28 z-50 h-10  md:h-12 lg:h-12 md:w-40 lg:w-40 w-28 rounded-lg text-center md:text-center lg:text-center pt-2 md:text-lg lg:text-xl text-sm  text-white bg-orange-500 hover:bg-orange-600 font-semibold lg:font-semibold md:font-semibold"><span class="btn-title">Appointment</span></h2>
+    </a>
+    </div>
+<!-- Top Features -->
+        <section class="top-features">
+            <div class="auto-container">
+                <div class="row">
+                    <!-- Feature Block -->
+                    <div class="feature-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-charity"></span>
+                            <h4><a href="#">Quality & Safety</a></h4>
+                            <p>Quality and safety are critical aspects of healthcare, especially for hospitals, Ensuring High-quality care and a safe environment for patients, staff, and visitors is essential to promote healing and maintain the reputation of the hospital.</p>
+                        </div>
+                    </div>
+                <!-- Feature Block -->
+                    <div class="feature-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-lifeline"></span>
+                            <h4><a href="#">Leading Technology</a></h4>
+                            <p>Hospital technology encompasses a wide range of tools and systems used in healthcare facilities to enhance patient care, and healthcare providers. Privacy regulations to ensure the effective and safe use of these technologies in healthcare settings.</p>
+                        </div>
+                    </div>
+                    <!-- Feature Block -->
+                    <div class="feature-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-doctor"></span>
+                            <h4><a href="#">Experts by Experience</a></h4>
+                            <p>Our experts provide practical advice on topics such as preparing for hospital visits, communicating effectively with healthcare professionals, managing post-treatment care. Provide suggestions for creating a supportive and safe home environment for recovery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Features Section -->
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="auto-container">
+                <div class="row">
+                    <!-- Content Column -->
+                    <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+                        <div class="inner-column">
+                            <div class="sec-title">
+                                <span class="sub-title -mt-24">OUR HOSPITAL</span>
+                                <h2>We're setting Standards in Research what's more, Hospital Care.</h2>
+                                <span class="divider"></span>
+                                <p>We provide the most full hospital services, so every person could have the opportunity receive qualitative medical help.</p>
+                                <p>Shlok Hospital A Multispeciality Hospital At Velu. One of the best hospital in Velu with well equiped Operation Theatre and Trained Nursing Staff. Well equped ICU Unit and Experienced Doctors. Hospital is well cleaned andon the road of Pune Banglore Highway at Velu near Shivapur.</p>
+                            </div>
+                            <div class="link-box">
+                                <a href="about-us.html" class="theme-btn btn-style-one"><span class="btn-title">More About</span></a>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Images Column -->
+                    <div class="images-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <figure class="image-1"><img src="images/fav.jpg" alt=""></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End About Section -->
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="auto-container">
+                <div class="sec-title text-center">
+                    <span class="sub-title">OUR SERVICES</span>
+                    <h2>We Care Our Patients.</h2>
+                    <span class="divider"></span>
+                </div>
+                <div class="row">
+                    <!-- Service Block -->
+                    <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-heartbeat"></span>
+                            <h5><a href="#">Health Check</a></h5>
+                            <div class="text">We offer regular health check-ups can identify any early signs of health issues. Finding problems early means that your chances for effective treatment are increased.
+                        </div>
+                        </div>
+                    </div>
+            <!-- Service Block -->
+                    <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-surgery-room"></span>
+                            <h5><a href="#">Operation Theater</a></h5>
+                            <div class="text">We offer Operation Theatre department at our Hospitals takes pleasure in providing high-quality treatment in a clean and welcoming atmosphere, a wide spectrum of knowledge in each speciality.</div>
+                        </div>
+                    </div>
+            <!-- Service Block -->
+                    <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-pharmacy"></span>
+                            <h5><a href="#">Pharmacy Support</a></h5>
+                            <div class="text">We offer pharmacy support is integral to promoting patient safety, to treatment plans, by collaborating with pharmacists and pharmacy staff, patients can gain valuable insights into their medications and achieve improved health outcomes.</div>
+                        </div>
+                    </div>
+            <!-- Service Block -->
+                    <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-transport"></span>
+                            <h5><a href="#">Ambulance Car</a></h5>
+                            <div class="text">We offer an ambulance is a specially equipped vehicle used to transport patients to medical facilities in emergency situations. Ambulance cars are designed to provide a safe and comfortable environment.</div>
+                        </div>
+                    </div>
+            <!-- Service Block -->
+                    <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-lab"></span>
+                            <h5><a href="#">Lat Tests</a></h5>
+                            <div class="text">We offer laboratory tests are essential diagnostic tools used by healthcare professionals to assess a patient's health status, diagnose medical conditions, monitor treatment effectiveness, and screen for various diseases</div>
+                        </div>
+                    </div>
+            <!-- Service Block -->
+                    <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-first-aid"></span>
+                            <h5><a href="#">Intensive Care</a></h5>
+                            <div class="text">We offer Intensive care for patients, whether human refers to specialized medical care provided to individuals with severe, life-threatening, or critical medical conditions.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Services Section -->
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="auto-container">
+                <div class="sec-title text-center">
+                    <span class="sub-title">Our Doctor</span>
+                    <h2>Our Dedicated Doctors Team</h2>
+                    <span class="divider"></span>
+                </div>
+                <div class="row">
+                    <!-- Team Block -->
+                    <div class="team-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <figure class="image"><img src="images/resource/team-1.jpg" alt=""></figure>
+                            <ul class="social-links">
+                                <li><a href="#"><span class="fab fa-facebook"></span></a></li>
+                                <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
+                            </ul>
+                            <div class="info-box">
+                                <h4 class="name"><a href="doctor-detail.html">Dr. Morila Wood</a></h4>
+                                <span class="designation">Senior Dr. at Delmont</span>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Team Block -->
+                    <div class="team-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <figure class="image"><img src="images/resource/team-2.jpg" alt=""></figure>
+                            <ul class="social-links">
+                                <li><a href="#"><span class="fab fa-facebook"></span></a></li>
+                                <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
+                            </ul>
+                            <div class="info-box">
+                                <h4 class="name"><a href="doctor-detail.html">Dr. Morila Wood</a></h4>
+                                <span class="designation">Senior Dr. at Delmont</span>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Team Block -->
+                    <div class="team-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <figure class="image"><img src="images/resource/team-3.jpg" alt=""></figure>
+                            <ul class="social-links">
+                                <li><a href="#"><span class="fab fa-facebook"></span></a></li>
+                                <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
+                            </ul>
+                            <div class="info-box">
+                                <h4 class="name"><a href="doctor-detail.html">Dr. Morila Wood</a></h4>
+                                <span class="designation">Senior Dr. at Delmont</span>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Team Block -->
+                    <div class="team-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <figure class="image"><img src="images/resource/team-4.jpg" alt=""></figure>
+                            <ul class="social-links">
+                                <li><a href="#"><span class="fab fa-facebook"></span></a></li>
+                                <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
+                            </ul>
+                            <div class="info-box">
+                                <h4 class="name"><a href="doctor-detail.html">Dr. Morila Wood</a></h4>
+                                <span class="designation">Senior Dr. at Delmont</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="sec-bottom-text">Don’t hesitate, contact us for better help and services<a href="#">Explore all Dr. Team</a></div>
+            </div>
+        </section>
+        <!-- End Team Section -->
+        <!-- Testimonial Section -->
+        <section class="testimonial-section">
+            <div class="auto-container">
+                <!-- Sec Title -->
+                <div class="sec-title text-center">
+                    <span class="title">HAPPY PATIENT</span>
+                    <h2>What Says Our Patients</h2>
+                    <span class="divider"></span>
+                </div>
+                <div class="testimonial-outer">
+                    <!-- Client Testimonial Carousel -->
+                    <div class="client-testimonial-carousel owl-carousel owl-theme">
+                    <!--Testimonial Block -->
+                        <div class="testimonial-block">
+                            <div class="inner-box">
+                                <div class="text">My mother was admitted in shlok hospital in October 2020, under emergency situation due to post-COVID effects. Very happy with the decision and really really grateful towards all the excellent team of doctors, nurses, substaff. Special thabks to Dr.Harne sir, Dr.Kaustubh khare sir, Dr Amey karnik sir, Dr Date sir, for all the tremendous efforts, treatment, equal and personal attention towards every patient. Hospital is well equipped, staff is well trained, and hygiene maintained. 24 hours availa.</div>
+                            </div>
+                        </div>
+                    <!--Testimonial Block -->
+                        <div class="testimonial-block">
+                            <div class="inner-box">
+                                <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues.
+                                    Thanks!</div>
+                            </div>
+                        </div>
+                    <!--Testimonial Block -->
+                        <div class="testimonial-block">
+                            <div class="inner-box">
+                                <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues.
+                                    Thanks!</div>
+                            </div>
+                        </div>
+                    <!--Testimonial Block -->
+                        <div class="testimonial-block">
+                            <div class="inner-box">
+                                <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues.
+                                    Thanks!</div>
+                            </div>
+                        </div>
+                    <!--Testimonial Block -->
+                        <div class="testimonial-block">
+                            <div class="inner-box">
+                                <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues.
+                                    Thanks!</div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Product Thumbs Carousel -->
+                    <div class="client-thumb-outer">
+                        <div class="client-thumbs-carousel owl-carousel owl-theme">
+                            <div class="thumb-item">
+                                <figure class="thumb-box"><img src="images/resource/testi-thumb-1.jpg" alt=""></figure>
+                                <div class="author-info">
+                                    <span class="icon fa fa-quote-left"></span>
+                                    <div class="author-name">Vaibhavi Panchpor</div>
+                                </div>
+                            </div>
+                            <div class="thumb-item">
+                                <figure class="thumb-box"><img src="images/resource/testi-thumb-2.jpg" alt=""></figure>
+                                <div class="author-info">
+                                    <span class="icon fa fa-quote-left"></span>
+                                    <div class="author-name">Lara Croft</div>
+                                    <div class="designation">Restaurant Owner</div>
+                                </div>
+                            </div>
+                            <div class="thumb-item">
+                                <figure class="thumb-box"><img src="images/resource/testi-thumb-3.jpg" alt=""></figure>
+                                <div class="author-info">
+                                    <span class="icon fa fa-quote-left"></span>
+                                    <div class="author-name">Lara Croft</div>
+                                    <div class="designation">Restaurant Owner</div>
+                                </div>
+                            </div>
+                            <div class="thumb-item">
+                                <figure class="thumb-box"><img src="images/resource/testi-thumb-2.jpg" alt=""></figure>
+                                <div class="author-info">
+                                    <span class="icon fa fa-quote-left"></span>
+                                    <div class="author-name">Lara Croft</div>
+                                    <div class="designation">Restaurant Owner</div>
+                                </div>
+                            </div>
+                            <div class="thumb-item">
+                                <figure class="thumb-box"><img src="images/resource/testi-thumb-3.jpg" alt=""></figure>
+                                <div class="author-info">
+                                    <span class="icon fa fa-quote-left"></span>
+                                    <div class="author-name">Lara Croft</div>
+                                    <div class="designation">Restaurant Owner</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Testimonial Section -->
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="auto-container">
+                <!-- Sec Title -->
+                <div class="sec-title text-center">
+                    <span class="title">OUR BLOG</span>
+                    <h2>Recent Articles and News</h2>
+                    <span class="divider"></span>
+                </div>
+            <div class="row">
+                    <!-- News Block -->
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="blog-post-image.html"><img src="images/update.avif" alt=""></a></figure>
+                                <a href="#" class="date">july 1, 2022</a>
+                            </div>
+                            <div class="lower-content">
+                                <div class="text">Shlok Hospital
+                                    Mega Free Heath check up Camp Arrange by Hon. MLA ( Bhor , Velha and Mulshi )Sangramdada Thopte jt venture with Shlok Hospital at Bhor
+                                    We screened more than 500 patients</div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                <!-- News Block -->
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="blog-post-image.html"><img src="images/interior-view-operating-room.avif" alt=""></a></figure>
+                                <a href="#" class="date">March 24, 2022</a>
+                            </div>
+                            <div class="lower-content">
+                                <div class="text">The best multispeciality Hospital in Velu with well equiped Operation Theatre requires careful consideration of various factors to ensure a safe and efficient environment for surgical procedures.</div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                <!-- News Block -->
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="blog-post-image.html"><img src="images/update3.jpg" alt=""></a></figure>
+                                <a href="#" class="date">March 31, 2022</a>
+                            </div>
+                            <div class="lower-content">
+                                <div class="text">Shlok Hospital Shivapur
+                                    CT scan facility available the duration of a CT scan can vary depending on the complexity of the images required. Typically, the procedure takes around 15 to 30 minutes.</div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End News Section -->
+<!-- Main Footer -->
+        <footer class="main-footer">
+            <!--Widgets Section-->
+            <div class="widgets-section" style="background-image: url(images/background/7.jpg);">
+                <div class="auto-container">
+                    <div class="row">
+                        <!--Big Column-->
+                        <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                            <div class="row">
+                                <!--Footer Column-->
+                                <div class="footer-column col-xl-7 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget about-widget">
+                                        <div class="logo">
+                                            <a href="index.html"><img src="images/Shlok Hospital White Logo 2-01.png" width="60%" class="drop-shadow-lg" alt="" /></a>
+                                        </div>
+                                        <div class="text">
+                                            <p>Shlok Hospital A Multispeciality Hospital At Velu. One of the best hospital in Velu with well equiped Operation Theatre and Trained Nursing Staff.</p>
+                                        </div>
+                                        <ul class="social-icon-three">
+                                            <ul class="social-icon-three">
+                                                <li><a href="https://www.facebook.com/people/Shlok-hospital/100064047314336/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="https://twitter.com/shlok_Hospital" target="_blank"><i class="fab fa-twitter" target="_blank"></i></a></li>
+                                                <li><a href="https://www.instagram.com/shlokhospital/" target="_blank"><i class="fab fa-square-instagram"></i></a></li>
+                                                <li><a href="https://api.whatsapp.com/send?text=https://www.shlokhospital.in" target="_blank"><span class="fa-brands fa-square-whatsapp" id="whatsapp-icon"></span></a></li>
+                                            </ul>
+                                    </div>
+                                </div>
+                            <!--Footer Column-->
+                                <div class="footer-column col-xl-5 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget">
+                                        <h2 class="widget-title">Services</h2>
+                                        <ul class="user-links">
+                                            <li><a href="burncare.html">Burn Care</a></li>
+                                            <li><a href="physiotheraphy.html">Physiotherapy</a></li>
+                                            <li><a href="anaesthesiology.html">Anaesthesiology</a></li>
+                                            <li><a href="psychiatry.html">Psychiatry</a></li>
+                                            <li><a href="rheumatology.html">Rheumatology</a></li>
+                                            <li><a href="more.html">More</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            <!--Big Column-->
+                        <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                            <div class="row">
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                    <!--Footer Column-->
+                                    <div class="footer-widget recent-posts">
+                                        <h2 class="widget-title">Latest News</h2>
+                                        <!--Footer Column-->
+                                        <div class="widget-content">
+                                            <div class="post">
+                                                <div class="thumb"><a href="blog-post-image.html"><img src="images/update.avif" alt=""></a></div>
+                                                <h4><a href="blog-post-image.html">Heath check up Camp Arrange by Hon. MLA</a></h4>
+                                                <span class="date">July 1, 2022</span>
+                                            </div>
+                                            <div class="post">
+                                                <div class="thumb"><a href="blog-post-image.html"><img src="images/interior-view-operating-room.avif" alt=""></a></div>
+                                                <h4><a href="blog-post-image.html">Operation Theatre facility available</a></h4>
+                                                <span class="date">March 24, 2022</span>
+                                            </div>
+                                            <div class="post">
+                                                <div class="thumb"><a href="blog-post-image.html"><img src="images/ct machine.webp" alt=""></a></div>
+                                                <h4><a href="blog-post-image.html">Shlok Hospital Shivapur
+                                                    CT scan facility available</a></h4>
+                                                <span class="date">March 31, 2022</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                    <!--Footer Column-->
+                                    <div class="footer-widget contact-widget">
+                                        <div class="md:ml-8">
+                                        <h2 class="widget-title">Contact Us</h2>
+                                        </div>
+                                        <!--Footer Column-->
+                                        <div class="widget-content">
+                                            <ul class="contact-list">
+                                                <div class="flex">
+                                                <li class="md:ml-9 -ml-11 -mt-3">
+                                                    <span class="icon flaticon-call-1"></span>
+                                                    <div class="-ml-6">
+                                                    <div class="text">Mon to sun : 7PM - 7PM</div>
+                                                    <a href="tel:+91 8048051713"><strong>+91 8048051713</strong></a>
+                                                    </div>
+                                                </li>
+                                                </div>
+                                                    <li class="md:-ml-10 -ml-16 md:mt-12 mt-3">
+                                                    <iframe width="100%" height="20%" src="https://www.google.com/maps/embed/v1/place?q=412205,Right Side Of Bridge, Khed Shivapur, Khed Shivapur , Kondhanpur Phata, Opposite Muktangan Hotel,Pune,India&amp;zoom=15&amp;key=AIzaSyDz5vOp_4ebrlGOV0FyuSf_w5jHBIQz5iQ">
+                                                </iframe>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Color Switcher -->
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/mmenu.polyfills.js"></script>
+    <script src="js/jquery.modal.min.js"></script>
+    <script src="js/mmenu.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/script.js"></script>
+    <!-- Color Setting -->
+    <script src="js/color-settings.js"></script>
+</body>
+
+</html>
